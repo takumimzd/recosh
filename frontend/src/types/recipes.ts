@@ -7,10 +7,13 @@ export interface RecipeType {
 
 export interface requestPostRecipePropsType {
   title: string
+  imageSrc: string
   ingredients: string
   description: string
-  process: ProcessType[]
+  process: (ProcessType | null)[]
 }
+
+export type RecipeFormType = requestPostRecipePropsType
 
 export interface ProcessType {
   description: string
