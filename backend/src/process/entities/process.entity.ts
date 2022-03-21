@@ -17,8 +17,8 @@ export class Process {
   @Column()
   description: string;
 
-  @Column()
-  image_src: string;
+  @Column({ nullable: true})
+  image_src: string | null;
 
   @Column()
   // レシピの手順の順番

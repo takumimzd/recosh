@@ -7,7 +7,6 @@ export class CreateProcessDTO {
   @IsString()
   description: string;
 
-  @IsNotEmpty()
   @IsString()
   image_src: string;
 

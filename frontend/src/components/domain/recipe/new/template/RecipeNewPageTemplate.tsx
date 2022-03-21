@@ -1,7 +1,7 @@
 import { memo, VFC, useState } from "react"
 import { useRouter } from "next/router"
 // type
-import { ProcessType, RecipeFormType } from "types/recipes"
+import { RecipeProcessType, RecipeFormType } from "types/recipes"
 // constants
 import { DFAULT_PROCESS_FORM_NUMBER } from "constants/recipe"
 // chakra
@@ -11,9 +11,10 @@ import usePostRecipe from "../../../../../hooks/apiRequest/recipe/usePostRecipe"
 // common component
 import { Textarea } from "../../../../common/form/Textarea"
 import { Input } from "../../../../common/form/Input"
-import SuccessToast from "components/common/toast/successToast"
-import ErrorToast from "components/common/toast/ErrorToast"
+import SuccessToast from "../../../../common/toast/SuccessToast"
+import ErrorToast from "../../../../common/toast/ErrorToast"
 // domain component
+import RecipeProcessItem from "../form/RecipeProcessItem"
 import RecipeCreateButton from "../button/RecipeCreateButton"
 import RecipeProcessAddButton from "../button/RecipeProcessAddButton"
 // utilities
@@ -29,9 +30,15 @@ type ExpandEventTarget = EventTarget & {
   files: HTMLFormElement
 };
 
+export interface RecipeProcessImgType {
+  order: number
+  src: string
+}
+
 export const RecipeNewPageTemplate: VFC = memo(() => {
   const [processFormCount, setProcessFormCount] = useState(DFAULT_PROCESS_FORM_NUMBER)
   const [recipeImageSrc, setRecipeImageSrc] = useState("")
+  const [recipeProcessImg, setRecipeProcessImg] = useState<RecipeProcessImgType[]>([])
   const router = useRouter();
   const toast = useToast()
 
@@ -40,15 +47,23 @@ export const RecipeNewPageTemplate: VFC = memo(() => {
     const target = event.target as ExpandEventTarget
 
     let i = 0
-    const process: (ProcessType | null)[] = [...Array(processFormCount)].map(() => {
-      if (!target.process[i].value) {
+    const process: (RecipeProcessType | null)[] = [...Array(processFormCount)].map(() => {
+      if (!target.process[i].value && !recipeProcessImg[i]) {
         i = i + 1
         return null
       }
+
       i = i + 1
-      return {description: target.process[i - 1].value, order: i, image_src: "image"}
+
+      const image = recipeProcessImg.map(image => {
+        if (image.order === i) {
+          return image.src
+        }
+      })
+
+      return { description: target.process[i - 1].value, order: i, image_src: image[0] }
     })
-    
+
     // 手順がnullの要素を削除する
     const removedNullProcess = removeNullFromArray(process)
 
@@ -103,7 +118,15 @@ export const RecipeNewPageTemplate: VFC = memo(() => {
           <FormLabel>作り方</FormLabel>
           <OrderedList>
             {[...Array(processFormCount)].map((_, i) => {
-              return <ListItem mb={2} key={i}><Textarea id="process" /></ListItem>
+              return (
+                <ListItem mb={2} key={i}>
+                  <RecipeProcessItem
+                    index={i + 1}
+                    recipeProcessImg={recipeProcessImg}
+                    setRecipeProcessImg={setRecipeProcessImg}
+                  />
+                </ListItem>
+              )
             })}
           </OrderedList>
           <RecipeProcessAddButton

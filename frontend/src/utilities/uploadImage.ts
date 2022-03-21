@@ -3,9 +3,8 @@ import firebase, { storage } from "../../firebase"
 const uploadImage = (uploadImage: File) => {
 
   const next = (snapshot: any) => {
-    const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log(percent + "% done");
-    console.log(snapshot);
+    // const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    // console.log(percent + "% done");
   };
 
   const error = (error: any) => {
