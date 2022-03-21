@@ -1,10 +1,10 @@
 import { requestPostRecipePropsType } from "types/recipes"
 import { Post } from "api/base/post"
 
-const requestPostRecipe = (props: requestPostRecipePropsType) => {
+const requestPostRecipe = async (props: requestPostRecipePropsType) => {
   const { title, imageSrc, ingredients, description, process } = props
 
-  const data = {
+  const postData = {
     recipe: {
       title: title,
       image_src: imageSrc,
@@ -15,9 +15,9 @@ const requestPostRecipe = (props: requestPostRecipePropsType) => {
     process: process
   }
 
-  const response = Post("/recipes", data)
+  const { data } = await Post<null>("/recipes", postData)
   
-  return response
+  return data
 }
 
 export default requestPostRecipe

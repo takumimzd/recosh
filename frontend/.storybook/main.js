@@ -12,6 +12,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
+  "typescript" : { reactDocgen: false },
   webpackFinal: async (config) => {
     return {
       ...config,
