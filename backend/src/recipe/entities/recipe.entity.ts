@@ -37,6 +37,6 @@ export class Recipe {
   // @UpdateDateColumn() => updated_at
   readonly updatedAt?: Date;
 
-  @OneToMany(() => Process, process => process.recipe)
+  @OneToMany(() => Process, process => process.recipe, { eager: true, cascade: true })
   process: Process[];
 }

@@ -1,7 +1,7 @@
-import requestPostRecipe from "api/recipes/requestPostRecipe"
-import { requestPostRecipePropsType } from "types/recipes"
+import requestPostRecipe from "../../../api/recipes/requestPostRecipe"
+import { RequestPostRecipePropsType } from "../../../types/api/recipe"
 
-const usePostRecipe = async (props: requestPostRecipePropsType) => {
+const usePostRecipe = async (props: RequestPostRecipePropsType) => {
   const data = await requestPostRecipe(props)
   
   return data

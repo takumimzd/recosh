@@ -1,4 +1,4 @@
-import { RecipeFormType } from "types/recipes"
+import { RecipeFormType } from "../../types/domain/recipe"
 
 export const recipeFormValidation = (recipeItem: RecipeFormType) => {
   let validationMessage = []

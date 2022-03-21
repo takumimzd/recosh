@@ -17,6 +17,9 @@
     // baseUrlを指定することでルートディレクトリを変更できるので,
     // pagesをsrc配下に移動させてもルーティングが正しく設定される
     "baseUrl": "src",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

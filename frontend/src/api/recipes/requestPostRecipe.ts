@@ -1,7 +1,7 @@
-import { requestPostRecipePropsType } from "types/recipes"
-import { Post } from "api/base/post"
+import { RequestPostRecipePropsType } from "../../types/api/recipe"
+import { Post } from "../../api/base/post"
 
-const requestPostRecipe = async (props: requestPostRecipePropsType) => {
+const requestPostRecipe = async (props: RequestPostRecipePropsType) => {
   const { title, imageSrc, ingredients, description, process } = props
 
   const postData = {

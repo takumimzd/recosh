@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import useFetchRecipe from 'hooks/apiRequest/recipe/useFetchRecipe'
-import useGetQuery from 'hooks/useGetQuery';
+import useFetchRecipe from '../../../../../hooks/apiRequest/recipe/useFetchRecipe'
+import useGetQuery from '../../../../../hooks/useGetQuery';
 import DeleteRecipeButton from '../button/DeleteRecipeButton';
 
 const RecipePageTemplate = () => {
@@ -18,6 +18,15 @@ const RecipePageTemplate = () => {
       <p>{recipe.ingredient}</p>
       <p>{recipe.description}</p>
       <p>{recipe.createdAt}</p>
+      <p>{recipe.process.map(processItem => {
+        return (
+          <div>
+            <p>{processItem.order}</p>
+            <p>{processItem.id}</p>
+            <p>{processItem.description}</p>
+          </div>
+        )
+      })}</p>
       <Image
         src={recipe.image_src}
         width={600}

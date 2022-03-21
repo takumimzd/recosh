@@ -1,9 +1,9 @@
 import { memo, VFC, useState } from "react"
 import { useRouter } from "next/router"
 // type
-import { RecipeProcessType, RecipeFormType } from "types/recipes"
+import { RecipeProcessFormType, RecipeFormType } from "../../../../../types/domain/recipe"
 // constants
-import { DFAULT_PROCESS_FORM_NUMBER } from "constants/recipe"
+import { DFAULT_PROCESS_FORM_NUMBER } from "../../../../../constants/recipe"
 // chakra
 import { FormControl, FormLabel, Box, OrderedList, ListItem, Center, useToast } from "@chakra-ui/react"
 // hooks
@@ -20,7 +20,7 @@ import RecipeProcessAddButton from "../button/RecipeProcessAddButton"
 // utilities
 import uploadImage from "../../../../../utilities/uploadImage"
 import { recipeFormValidation } from "../../../../../utilities/validations/recipeFormValidation"
-import { removeNullFromArray } from "utilities/removeNullFromArray"
+import { removeNullFromArray } from "../../../../../utilities/removeNullFromArray"
 
 type ExpandEventTarget = EventTarget & {
   title: HTMLFormElement
@@ -30,7 +30,7 @@ type ExpandEventTarget = EventTarget & {
   files: HTMLFormElement
 };
 
-export interface RecipeProcessImgType {
+interface RecipeProcessImgType {
   order: number
   src: string
 }
@@ -47,7 +47,7 @@ export const RecipeNewPageTemplate: VFC = memo(() => {
     const target = event.target as ExpandEventTarget
 
     let i = 0
-    const process: (RecipeProcessType | null)[] = [...Array(processFormCount)].map(() => {
+    const process: (RecipeProcessFormType| null)[] = [...Array(processFormCount)].map(() => {
       if (!target.process[i].value && !recipeProcessImg[i]) {
         i = i + 1
         return null
