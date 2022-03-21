@@ -17,7 +17,7 @@ const ResipesPageTemplate = () => {
       <Grid templateColumns='repeat(3, 1fr)' gap={2} >
         {recipes.map(recipe =>  {
           return (
-            <NextLink href={`/recipes/${recipe.id}`}>
+            <NextLink href={`/recipes/${recipe.id}`} key={recipe.id}>
               <Link>
                 <GridItem mr={1} ml={1}>
                   <Image
