@@ -1,8 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 
-import { PrimaryButton as PrimaryBtn } from './PrimaryButton';
+import { PrimaryButton as PrimaryBtn } from '@/components/common/button/PrimaryButton'
 
 export default {
   title: 'Button',

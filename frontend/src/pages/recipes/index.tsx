@@ -1,5 +1,5 @@
 import React from 'react'
-import RecipesPageTemplate from '../../components/domain/recipe/recipes/template/RecipesPageTemplate';
+import RecipesPageTemplate from '@/components/domain/recipe/recipes/template/RecipesPageTemplate';
 
 const RecipePage = () => {
   return <RecipesPageTemplate />

@@ -1,4 +1,4 @@
-import { Axios } from "../base/axios"
+import { Axios } from "@/api/base/axios"
 
 const get = async (url: string) => {
   try {

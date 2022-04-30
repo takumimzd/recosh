@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import { AddIcon } from "@chakra-ui/icons"
-import { PrimaryButton } from "components/common/button/PrimaryButton"
+import { PrimaryButton } from "@/components/common/button/PrimaryButton"
 
 interface Props {
   processFormCount: number

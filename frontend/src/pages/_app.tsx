@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { Box, Center, ChakraProvider, extendTheme, useMediaQuery } from "@chakra-ui/react"
-import Header from 'components/layout/Header'
+import Header from '@/components/layout/Header'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLargerThan1000] = useMediaQuery('(min-width: 980px)')

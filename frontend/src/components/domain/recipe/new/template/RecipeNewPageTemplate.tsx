@@ -1,26 +1,26 @@
 import { memo, VFC, useState } from "react"
 import { useRouter } from "next/router"
 // type
-import { RecipeProcessFormType, RecipeFormType } from "../../../../../types/domain/recipe"
+import { RecipeProcessFormType, RecipeFormType } from "@/types/domain/recipe"
 // constants
-import { DFAULT_PROCESS_FORM_NUMBER } from "../../../../../constants/recipe"
+import { DFAULT_PROCESS_FORM_NUMBER } from "@/constants/recipe"
 // chakra
 import { FormControl, FormLabel, Box, OrderedList, ListItem, Center, useToast } from "@chakra-ui/react"
 // hooks
-import usePostRecipe from "../../../../../hooks/apiRequest/recipe/usePostRecipe"
+import usePostRecipe from "@/hooks/apiRequest/recipe/usePostRecipe"
 // common component
-import { Textarea } from "../../../../common/form/Textarea"
-import { Input } from "../../../../common/form/Input"
-import SuccessToast from "../../../../common/toast/SuccessToast"
-import ErrorToast from "../../../../common/toast/ErrorToast"
+import { Textarea } from "@/components/common/form/Textarea"
+import { Input } from "@/components/common/form/Input"
+import SuccessToast from "@/components/common/toast/SuccessToast"
+import ErrorToast from "@/components/common/toast/ErrorToast"
 // domain component
-import RecipeProcessItem from "../form/RecipeProcessItem"
-import RecipeCreateButton from "../button/RecipeCreateButton"
-import RecipeProcessAddButton from "../button/RecipeProcessAddButton"
+import RecipeProcessItem from "@/components/domain/recipe/new/form/RecipeProcessItem"
+import RecipeCreateButton from "@/components/domain/recipe/new/button/RecipeCreateButton"
+import RecipeProcessAddButton from "@/components/domain/recipe/new/button/RecipeProcessAddButton"
 // utilities
-import uploadImage from "../../../../../utilities/uploadImage"
-import { recipeFormValidation } from "../../../../../utilities/validations/recipeFormValidation"
-import { removeNullFromArray } from "../../../../../utilities/removeNullFromArray"
+import uploadImage from "@/utilities/uploadImage"
+import { recipeFormValidation } from "@/utilities/validations/recipeFormValidation"
+import { removeNullFromArray } from "@/utilities/removeNullFromArray"
 
 type ExpandEventTarget = EventTarget & {
   title: HTMLFormElement
@@ -30,7 +30,7 @@ type ExpandEventTarget = EventTarget & {
   files: HTMLFormElement
 };
 
-interface RecipeProcessImgType {
+export interface RecipeProcessImgType {
   order: number
   src: string
 }

@@ -1,6 +1,6 @@
 import useFetch from "../common/useFetch"
-import requestFetchRecipes from "../../../api/recipes/requestFetchRecipes"
-import { RequestFetchRecipeType } from "../../../types/api/recipe"
+import requestFetchRecipes from "@/api/recipes/requestFetchRecipes"
+import { RequestFetchRecipeType } from "@/types/api/recipe"
 
 const useFetchRecipes = () => {
   const fetcher = () => requestFetchRecipes()

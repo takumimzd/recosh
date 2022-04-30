@@ -1,4 +1,4 @@
-import { Delete } from "api/base/delete"
+import { Delete } from "@/api/base/delete"
 
 const requestDeleteRecipe = async (id: number) => {
 

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react"
 import { Textarea } from "@chakra-ui/react"
-import uploadImage from "utilities/uploadImage"
-import { RecipeProcessImgType } from "../template/RecipeNewPageTemplate"
+import uploadImage from "@/utilities/uploadImage"
+import { RecipeProcessImgType } from "@/components/domain/recipe/new/template/RecipeNewPageTemplate"
 
 interface Props {
   index: number

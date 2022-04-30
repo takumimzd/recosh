@@ -1,8 +1,8 @@
 import React from 'react'
-import RecipePageTemplate from '../../../components/domain/recipe/recipe/template/RecipePageTemplate';
+import RecipePageTemplate from '@/components/domain/recipe/recipe/template/RecipePageTemplate';
 
 const RecipesPage = () => {
   return <RecipePageTemplate />
 }
 
-export default RecipesPage;
+export default RecipesPage

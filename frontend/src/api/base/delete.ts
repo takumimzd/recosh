@@ -1,4 +1,4 @@
-import { Axios } from "./axios"
+import { Axios } from "@/api/base/axios"
 
 export const Delete = async (url: string) => {
   try {

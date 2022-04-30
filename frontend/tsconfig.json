@@ -16,9 +16,15 @@
     "incremental": true,
     // baseUrlを指定することでルートディレクトリを変更できるので,
     // pagesをsrc配下に移動させてもルーティングが正しく設定される
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/api/*": ["src/api/*"],
+      "@/components/*": ["src/components/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/constants/*": ["src/constants/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/types/*": ["src/types/*"],
+      "@/utilities/*": ["src/utilities/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

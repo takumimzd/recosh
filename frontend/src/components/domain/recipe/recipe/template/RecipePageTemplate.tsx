@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import useFetchRecipe from '../../../../../hooks/apiRequest/recipe/useFetchRecipe'
-import useGetQuery from '../../../../../hooks/useGetQuery';
-import DeleteRecipeButton from '../button/DeleteRecipeButton';
+import useFetchRecipe from '@/hooks/apiRequest/recipe/useFetchRecipe'
+import useGetQuery from '@/hooks/useGetQuery'
+import DeleteRecipeButton from '@/components/domain/recipe/recipe/button/DeleteRecipeButton'
 
 const RecipePageTemplate = () => {
   const query = useGetQuery("id")

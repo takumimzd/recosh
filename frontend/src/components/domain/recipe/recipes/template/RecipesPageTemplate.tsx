@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
 import { Box, Grid, GridItem, Link } from '@chakra-ui/react'
-import useFetchRecipes from '../../../../../hooks/apiRequest/recipe/useFetchRecipes'
+import useFetchRecipes from '@/hooks/apiRequest/recipe/useFetchRecipes'
 
 
 

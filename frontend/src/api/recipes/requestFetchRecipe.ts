@@ -1,4 +1,4 @@
-import get from "api/base/get"
+import get from "@/api/base/get"
 
 const requestFetchRecipe = async (recipeId: number) => {
   const fetcher = await get(`/recipes/${recipeId}`)

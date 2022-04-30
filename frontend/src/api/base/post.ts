@@ -1,4 +1,4 @@
-import { Axios } from "./axios"
+import { Axios } from "@/api/base/axios"
 import { AxiosResponse } from "axios"
 
 export const Post = async <T>(url: string, data: any) => {

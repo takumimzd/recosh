@@ -1,4 +1,4 @@
-import requestDeleteRecipe from "api/recipes/requestDeleteRecipe"
+import requestDeleteRecipe from "@/api/recipes/requestDeleteRecipe"
 
 const useDeleteRecipe = (id: number) => {
   const response = requestDeleteRecipe(id)

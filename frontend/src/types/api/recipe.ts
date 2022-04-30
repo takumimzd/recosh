@@ -1,4 +1,4 @@
-import { RecipeProcessFormType } from "../domain/recipe";
+import { RecipeProcessFormType } from "@/types/domain/recipe"
 
 export interface RequestFetchRecipeType {
   id: number
