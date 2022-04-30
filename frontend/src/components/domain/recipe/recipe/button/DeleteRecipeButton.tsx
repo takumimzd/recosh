@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import { PrimaryButton } from "@/components/common/button/PrimaryButton"
+import { DangerButton } from "@/components/common/button/DangerButton"
 import useDeleteRecipe from '@/hooks/apiRequest/recipe/useDeleteRecipe'
 
 const DeleteRecipeButton = ({ id }: {id: number}) => {  
@@ -9,7 +9,7 @@ const DeleteRecipeButton = ({ id }: {id: number}) => {
   }
 
   return (
-    <PrimaryButton onClick={deleteButtonOnClick}>削除</PrimaryButton>
+    <DangerButton onClick={deleteButtonOnClick}>削除</DangerButton>
   )
 }
 

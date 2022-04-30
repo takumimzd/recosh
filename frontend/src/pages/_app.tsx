@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Header />
-      <Center bg="orange.50" pt={30} pb={50}>
+      <Center pt={30} pb={50}>
         <Box w={width}>
           <Component {...pageProps} />
         </Box>

@@ -1,23 +1,24 @@
-import { memo, VFC } from "react"
+import { memo, VFC } from 'react'
 import NextLink from 'next/link'
-import { Heading, Flex, Link, Box } from "@chakra-ui/react"
-import { EditIcon } from "@chakra-ui/icons"
+import { Heading, Flex, Link, Box } from '@chakra-ui/react'
 
-const Header: VFC  = memo(() => {
+const Header: VFC = memo(() => {
   return (
-    <Flex as="nav" bg="orange.50" color="gray.700" border="1px" borderColor="gray.500" align="center" justify="space-between">
-      <NextLink href="/recipes">
-        <Heading as="h1" fontSize={{base: "2xl"}} p="2" mr={8} cursor="pointer">Recosh</Heading>
+    <Flex as='nav' color='gray.700' align='center' boxShadow='md' justify='space-between'>
+      <NextLink href='/recipes' passHref>
+        <Heading as='h1' fontSize={{ base: '2xl' }} p='2' mr={8} cursor='pointer'>
+          Recosh
+        </Heading>
       </NextLink>
-      <Flex align="center" flexGrow={2}>
+      <Flex align='center' flexGrow={2}>
         <Box>
-        <NextLink href="/recipes/new">
-          <Link pr="7"><EditIcon w={5} h={5} /></Link>
-        </NextLink>
+          <NextLink href='/recipes/new' passHref>
+            <Link pr='7'>レシピを書く</Link>
+          </NextLink>
         </Box>
       </Flex>
     </Flex>
   )
-});
+})
 
-export default Header;
+export default Header

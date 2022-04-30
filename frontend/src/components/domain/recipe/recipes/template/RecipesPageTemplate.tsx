@@ -3,27 +3,25 @@ import Image from 'next/image'
 import { Box, Grid, GridItem, Link } from '@chakra-ui/react'
 import useFetchRecipes from '@/hooks/apiRequest/recipe/useFetchRecipes'
 
-
-
-
 const ResipesPageTemplate = () => {
   const { recipes, error } = useFetchRecipes()
 
   if (!recipes) return <div>レシピがありません</div>
   if (error) return <div>エラー</div>
-  
+
   return (
     <Box>
-      <Grid templateColumns='repeat(3, 1fr)' gap={2} >
-        {recipes.map(recipe =>  {
+      <Grid templateColumns='repeat(3, 1fr)' gap={2}>
+        {recipes.map((recipe) => {
           return (
-            <NextLink href={`/recipes/${recipe.id}`} key={recipe.id}>
+            <NextLink href={`/recipes/${recipe.id}`} key={recipe.id} passHref>
               <Link>
                 <GridItem mr={1} ml={1}>
                   <Image
-                    src={"/images/sample_recipe.jpg"}
+                    src={'/images/sample_recipe.jpg'}
                     width={300}
                     height={300}
+                    alt={`料理の画像`}
                   />
                   {recipe.title}
                 </GridItem>
@@ -36,4 +34,4 @@ const ResipesPageTemplate = () => {
   )
 }
 
-export default ResipesPageTemplate;
+export default ResipesPageTemplate
