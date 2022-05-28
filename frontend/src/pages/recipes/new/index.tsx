@@ -4,3 +4,5 @@ import { RecipeNewPageTemplate } from '@/components/domain/recipe/new/template/R
 export const RecipesNewPage = () => {
   return <RecipeNewPageTemplate />
 }
+
+export default RecipesNewPage

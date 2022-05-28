@@ -2,7 +2,7 @@ import React from 'react'
 import useFetchRecipe from '@/hooks/apiRequest/recipe/useFetchRecipe'
 import useGetQuery from '@/hooks/useGetQuery'
 import DeleteRecipeButton from '@/components/domain/recipe/recipe/button/DeleteRecipeButton'
-import { Box, Center, Image } from '@chakra-ui/react'
+import { Box, Center, Image, Text } from '@chakra-ui/react'
 
 const RecipePageTemplate = () => {
   const query = useGetQuery('id')
@@ -13,24 +13,53 @@ const RecipePageTemplate = () => {
 
   return (
     <Center>
-      <Box w='80%'>
-        <Image
-          src={recipe.image_src}
-          alt={`${recipe.title}の画像`}
-          width={350}
-          height={350}
-          borderRadius='xl'
-        />
-        <p>{recipe.title}</p>
-        <p>{recipe.ingredient}</p>
+      <Box maxWidth='60%'>
+        <Center>
+          <Image
+            src={recipe.image_src}
+            alt={`${recipe.title}の画像`}
+            width={500}
+            height={400}
+            borderRadius='xl'
+          />
+        </Center>
+        <Center>
+          <Text fontSize='2xl' fontWeight='bold' mb={8} mt={4}>
+            {recipe.title}
+          </Text>
+        </Center>
         <p>{recipe.description}</p>
+        <Center>
+          <Text fontSize='xl' fontWeight='bold' mb={4} mt={8}>
+            材料
+          </Text>
+        </Center>
+        <p>{recipe.ingredient}</p>
+        <Center>
+          <Text fontSize='xl' fontWeight='bold' mb={4} mt={8}>
+            手順
+          </Text>
+        </Center>
         <p>
           {recipe.process.map((processItem) => {
             return (
-              <div key={processItem.id}>
-                <p>{processItem.order}</p>
-                <p>{processItem.description}</p>
-              </div>
+              <Box mb={4} key={processItem.id}>
+                <Text fontWeight='bold'>{processItem.order}</Text>
+                {processItem.image_src && (
+                  <Center mb={4}>
+                    <Image
+                      src={processItem.image_src}
+                      alt={`手順${processItem.order}の画像`}
+                      width={250}
+                      height={200}
+                      borderRadius='xl'
+                    />
+                  </Center>
+                )}
+                <Box borderWidth='initial' minHeight='100' borderRadius='md'>
+                  <p>{processItem.description}</p>
+                </Box>
+              </Box>
             )
           })}
         </p>
